@@ -109,12 +109,12 @@ plot1D.pp(hpp)
 
 An unbiased estimator for $\lambda$ in a homogeneous Poisson process is $$\hat{\lambda} = \frac{\#(x)}{|D|},$$ where $\mathbf{x}$ is the point pattern data set, and $D$ is the observed in a window.
 ```{r}
-(lambda_hat <- length(pp) / 100)
+(lambda_hat <- length(hpp) / 100)
 ```
 
 ### Non-homogeneous Poisson process
 
-To simulate from a non-homogeneous Poisson process, we can use the thinning ([Lewis and Shedler, 1979](https://onlinelibrary.wiley.com/doi/10.1002/nav.3800260304)).
+To simulate from a non-homogeneous Poisson process, we can use the thinning approach ([Lewis and Shedler, 1979](https://onlinelibrary.wiley.com/doi/10.1002/nav.3800260304)).
 
 1. Find $\max(\lambda(x))$, i.e., the maximum of $\lambda(x)$ in $\mathcal{D}$.
 2. Simulate a homogeneous Poisson process with $\lambda = \max(\lambda(x) \cdot |D|)$.
@@ -201,7 +201,7 @@ initial_values <- c(0, 0)
 
 ```
 
-## hypothesis test
+## Hypothesis test
 
 We can visually inspect whether the point pattern seemed to be sampled from a (non-)homogeneous process by counting the number of events by interval.
 

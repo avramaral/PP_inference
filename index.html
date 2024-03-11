@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
-  <li><a href="#hypothesis-test" id="toc-hypothesis-test" class="nav-link" data-scroll-target="#hypothesis-test">hypothesis test</a></li>
+  <li><a href="#hypothesis-test" id="toc-hypothesis-test" class="nav-link" data-scroll-target="#hypothesis-test">Hypothesis test</a></li>
   <li><a href="#cox-process" id="toc-cox-process" class="nav-link" data-scroll-target="#cox-process">Cox Process</a></li>
   <li><a href="#inla-and-r-inla" id="toc-inla-and-r-inla" class="nav-link" data-scroll-target="#inla-and-r-inla">INLA and <code>R-INLA</code></a>
   <ul class="collapse">
@@ -246,15 +246,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>An unbiased estimator for <span class="math inline">\lambda</span> in a homogeneous Poisson process is <span class="math display">\hat{\lambda} = \frac{\#(x)}{|D|},</span> where <span class="math inline">\mathbf{x}</span> is the point pattern data set, and <span class="math inline">D</span> is the observed in a window.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(lambda_hat <span class="ot">&lt;-</span> <span class="fu">length</span>(pp) <span class="sc">/</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(lambda_hat <span class="ot">&lt;-</span> <span class="fu">length</span>(hpp) <span class="sc">/</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.05</code></pre>
+<pre><code>[1] 0.48</code></pre>
 </div>
 </div>
 </section>
 <section id="non-homogeneous-poisson-process" class="level3">
 <h3 class="anchored" data-anchor-id="non-homogeneous-poisson-process">Non-homogeneous Poisson process</h3>
-<p>To simulate from a non-homogeneous Poisson process, we can use the thinning (<a href="https://onlinelibrary.wiley.com/doi/10.1002/nav.3800260304">Lewis and Shedler, 1979</a>).</p>
+<p>To simulate from a non-homogeneous Poisson process, we can use the thinning approach (<a href="https://onlinelibrary.wiley.com/doi/10.1002/nav.3800260304">Lewis and Shedler, 1979</a>).</p>
 <ol type="1">
 <li>Find <span class="math inline">\max(\lambda(x))</span>, i.e., the maximum of <span class="math inline">\lambda(x)</span> in <span class="math inline">\mathcal{D}</span>.</li>
 <li>Simulate a homogeneous Poisson process with <span class="math inline">\lambda = \max(\lambda(x) \cdot |D|)</span>.</li>
@@ -347,7 +347,7 @@ $value
 </section>
 </section>
 <section id="hypothesis-test" class="level2">
-<h2 class="anchored" data-anchor-id="hypothesis-test">hypothesis test</h2>
+<h2 class="anchored" data-anchor-id="hypothesis-test">Hypothesis test</h2>
 <p>We can visually inspect whether the point pattern seemed to be sampled from a (non-)homogeneous process by counting the number of events by interval.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>L  <span class="ot">&lt;-</span> <span class="fu">psp</span>(<span class="at">x0 =</span> <span class="dv">0</span>, <span class="at">y0 =</span> <span class="dv">0</span>, <span class="at">x1 =</span> <span class="dv">100</span>, <span class="at">y1 =</span> <span class="dv">0</span>, <span class="fu">owin</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>)))</span>
