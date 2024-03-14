@@ -165,7 +165,7 @@ plot1D.pp(nhpp)
 
 The likelihood function of a point process is obtained based on the density function of the two observed variables, namely the number of events $\mathcal{N}$ and the locations $\{x\}$.
 
-For a Poisson process, we have that $\mathcal{N}(D) \sim \text{Poisson}(\int_D\lambda(x)dx)$ and, for each $x$, $\mathbb{P}(x_i) = \lambda(x_i) / \frac{\int_D\lambda(x)dx}. Therefore,
+For a Poisson process, we have that $\mathcal{N}(D) \sim \text{Poisson}(\int_D\lambda(x)dx)$ and, for each $x$, $\mathbb{P}(x_i) = \lambda(x_i) / \int_D\lambda(x)dx$. Therefore,
 \begin{align*}
 L(\theta) &= \frac{e^{-(\int_D\lambda(x)dx)}(\int_D\lambda(x)dx)^N}{N!} \prod_{i = 1}^N \frac{\lambda(x_i)}{\int_D\lambda(x)dx} \\ &\propto e^{-(\int_D\lambda(x)dx)}\prod_{i = 1}^N\lambda(x_i),
 \end{align*}
@@ -266,6 +266,8 @@ $$
 \mathcal{N}(c_{ij})|\zeta(x) \sim \text{Poisson}(|c_{i, j}| \cdot \exp\{\zeta(x)\}),
 $$
 where $\zeta(x)$ is a Gaussian field.
+
+This approach is well documented in [Moraga, 2020](https://journal.r-project.org/archive/2021/RJ-2021-017/RJ-2021-017.pdf).
 
 #### Example 1
 

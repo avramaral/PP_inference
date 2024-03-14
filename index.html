@@ -312,7 +312,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="likelihood-function" class="level2">
 <h2 class="anchored" data-anchor-id="likelihood-function">Likelihood function</h2>
 <p>The likelihood function of a point process is obtained based on the density function of the two observed variables, namely the number of events <span class="math inline">\mathcal{N}</span> and the locations <span class="math inline">\{x\}</span>.</p>
-<p>For a Poisson process, we have that <span class="math inline">\mathcal{N}(D) \sim \text{Poisson}(\int_D\lambda(x)dx)</span> and, for each <span class="math inline">x</span>, $(x_i) = (x_i) / . Therefore, <span class="math display">\begin{align*}
+<p>For a Poisson process, we have that <span class="math inline">\mathcal{N}(D) \sim \text{Poisson}(\int_D\lambda(x)dx)</span> and, for each <span class="math inline">x</span>, <span class="math inline">\mathbb{P}(x_i) = \lambda(x_i) / \int_D\lambda(x)dx</span>. Therefore, <span class="math display">\begin{align*}
 L(\theta) &amp;= \frac{e^{-(\int_D\lambda(x)dx)}(\int_D\lambda(x)dx)^N}{N!} \prod_{i = 1}^N \frac{\lambda(x_i)}{\int_D\lambda(x)dx} \\ &amp;\propto e^{-(\int_D\lambda(x)dx)}\prod_{i = 1}^N\lambda(x_i),
 \end{align*}</span> where <span class="math inline">N</span> is a a realization of <span class="math inline">\mathcal{N}(D)</span>. The log-likelihood is given by <span class="math display">\begin{align*}
 \ell(\theta) \propto \sum_{i = 1}^{N}\log(\lambda(x_i)) - \int_D\lambda(x)dx.
@@ -406,6 +406,7 @@ Quadrats: 8 by 1 grid of tiles</code></pre>
 <p>Thus, conditional on the latent Gaussian field <span class="math inline">\zeta(x)</span>, the number of locations in the grid cell <span class="math inline">c_{i, j}</span>, <span class="math inline">\forall i, j</span>, are independent and Poisson distributed as follows <span class="math display">
 \mathcal{N}(c_{ij})|\zeta(x) \sim \text{Poisson}(|c_{i, j}| \cdot \exp\{\zeta(x)\}),
 </span> where <span class="math inline">\zeta(x)</span> is a Gaussian field.</p>
+<p>This approach is well documented in <a href="https://journal.r-project.org/archive/2021/RJ-2021-017/RJ-2021-017.pdf">Moraga, 2020</a>.</p>
 <section id="example-1" class="level4">
 <h4 class="anchored" data-anchor-id="example-1">Example 1</h4>
 <p>For the first example, we will analyze the spatial locations of cases of lung cancer in <code>chorley</code> (from <code>spatstat.data</code>). The data give the precise domicile addresses of new cases of cancer of the larynx (58 cases) and cancer of the lung (978 cases), recorded in the Chorley and South Ribble Health Authority of Lancashire (England) between 1974 and 1983.</p>
