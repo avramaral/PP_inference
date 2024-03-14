@@ -259,11 +259,11 @@ respectively.
 
 Although we can use a Stochastic Partial Differential Equation (SPDE)-approach to fit LGCP models using INLA ([Simpson et al., 2016](https://arxiv.org/abs/1111.0641)), we will consider a partition of $\mathcal{D}$ given by cells $c_{i, j}$, for some set of index $(i, j)$.
 
-First, recall that if $\xi$ is a LGCP, then the mean number of events in a cell $c_{ij}$ is given by the integral of the intensity over the cell, that is, $\int_{c_{i,j}}\exp\{\zeta(x)\}dx$. Then, for sufficiently small cells, such an integral can be approximated by $|c_{i,j}|\exp\{\zeta(x)\}$, where $|c_{i, j}|$ is the area of the cell $c_{i, j}$.
+First, recall that if $\xi$ is a LGCP, then the mean number of events in a cell $c_{ij}$ is given by the integral of the intensity over the cell, that is, $\int_{c_{i,j}}\Lambda(x)dx$. Then, for sufficiently small cells, such an integral can be approximated by $|c_{i,j}|\Lambda(x)$, where $|c_{i, j}|$ is the area of the cell $c_{i, j}$.
 
 Thus, conditional on the latent Gaussian field $\zeta(x)$, the number of locations in the grid cell $c_{i, j}$, $\forall i, j$, are independent and Poisson distributed as follows
 $$
-\mathcal{N}(c_{ij})|\zeta(x) \sim \text{Poisson}(|c_{i, j}| \cdot \exp\{\zeta(x)\}),
+\mathcal{N}(c_{ij})|\zeta(x) \sim \text{Poisson}(|c_{i, j}| \cdot \Lambda(x)),
 $$
 where $\zeta(x)$ is a Gaussian field.
 

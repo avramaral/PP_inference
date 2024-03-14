@@ -9,7 +9,7 @@ library("ggplot2")  # Plotting
 library("tmap")     # Plotting
 library("raster")   # Create `raster` object
 library("rgeos")    # Plotting
-library("INLA")     # Fit latent Gaussian models
+library("INLA")     # Fit Gaussian latent models
 library("sf")       # Manipulate spatial objects
 
 ##############################
